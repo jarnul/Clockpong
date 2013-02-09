@@ -39,7 +39,7 @@ public class gameLogic {
 		drawBall();
 	}
 	
-	private void movePlayerUp(){
+	public void movePlayerUp(){
 		if(game[0][0]==0) {
 			int temp=0;
 			for(int i=0;i<game[0].length;++i){
@@ -61,7 +61,7 @@ public class gameLogic {
 		}
 	}
 	
-	private void movePlayerDown(){
+	public void movePlayerDown(){
 		if(game[0][15]==0) {
 			int temp=0;
 			for(int i=0;i<game[0].length;++i){
@@ -104,7 +104,9 @@ public class gameLogic {
 		return game;
 	}
 	
-	public void updateGame(){
+	
+	//returns true if game continues, false if game is over (player loses)
+	public boolean updateGame(){
 		if (direction==0){
 			if(ballLocationX==75)
 				direction=1;
@@ -115,14 +117,21 @@ public class gameLogic {
 			}
 		}
 		else if(direction==1){
-			if(ballLocationX==width+1)
-				direction=0;
+			if(ballLocationX==width+1) {
+				if(game[width-1][ballLocationY]==0){
+					return false;
+				}
+				else {
+					direction=0;
+				}
+			}
 			else {
 				removeBall();
 				--ballLocationX;
 				drawBall();
 			}
 		}
+		return true;
 	}
 	
 	

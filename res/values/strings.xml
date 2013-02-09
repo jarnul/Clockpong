@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">testiAppi</string>
+    <string name="app_name">Start game</string>
     <string name="hello_world">testipallero</string>
     <string name="menu_settings">Settings</string>
+    <string name="goUp">Move up</string>
+    <string name="goDown">Move down</string>
 
 </resources>
